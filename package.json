@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm install && node api/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "docker-python-sandbox": "latest",
+    "docker-python-sandbox": "file:///home/ethanc/PythonBuddySandbox",
     "express": "^4.14.0",
     "winston": "^2.2.0"
   },

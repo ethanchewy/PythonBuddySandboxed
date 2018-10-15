@@ -1,6 +1,7 @@
 "use strict";
-
+// NEED TO FIX THIS TO MY TESTING PYTHON IMAGE
 var Sandbox     = require('docker-python-sandbox');
+// var Sandbox     = require('testingpython');
 var log         = require('winston');
 let fs          = require('fs');
 let express     = require('express');
@@ -25,6 +26,7 @@ app.use(middlewares.securityKey);
 app.use(middlewares.rateLimiter);
 
 app.post(config.api.endpoint, handler(sandbox));
+app.post(config.api.endpoint_pylint, handler(sandbox));
 
 log.info("Initializing Sandbox")
 
@@ -34,9 +36,9 @@ sandbox.createPool( (err) => {
     log.error(err);
     return
   }
-  
+
   log.info("Sandbox initialized");
-  
+
   app.listen(config.api.port, () => {
     log.info(`API Listening on port ${config.api.port}`);
   });

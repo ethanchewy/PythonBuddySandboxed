@@ -1,0 +1,30 @@
+body{
+	background-color: #428bca !important;
+    font-family: 'Inconsolata',sans-serif;
+    color:white !important;
+}
+
+.cm-s-default {
+	-webkit-box-shadow: 5px 5px 20px 8px rgba(62,132,189,1);
+	-moz-box-shadow: 5px 5px 20px 8px rgba(62,132,189,1);
+	box-shadow: 5px 5px 20px 8px rgba(62,132,189,1);
+
+}
+
+button{
+    font-size: 20px !important;
+}
+
+table, th, td {
+   border: 1px solid white;
+}
+
+a{
+	color:white;
+}
+#run:hover{
+	-webkit-filter: grayscale(100%);
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+   filter: grayscale(100%);
+}
