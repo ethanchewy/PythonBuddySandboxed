@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "docker-python-sandbox": "file:///home/ethanc/PythonBuddySandbox",
+    "docker-python-sandbox-pythonbuddy": "latest",
     "express": "^4.14.0",
     "winston": "^2.2.0"
   },

@@ -1,6 +1,6 @@
 "use strict";
 // NEED TO FIX THIS TO MY TESTING PYTHON IMAGE
-var Sandbox     = require('docker-python-sandbox');
+var Sandbox     = require('docker-python-sandbox-pythonbuddy');
 // var Sandbox     = require('testingpython');
 var log         = require('winston');
 let fs          = require('fs');
