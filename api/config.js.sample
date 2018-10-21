@@ -55,7 +55,7 @@ config.security.secret_header   = 'X-API-Key';
 config.sandbox = {};
 
 //config.sandbox.poolSize = 3;
-//config.sandbox.memoryLimitMb = 50;
+config.sandbox.memoryLimitMb = 100;
 //config.sandbox.timeoutMs = 10000;
 
 module.exports = config;
