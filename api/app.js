@@ -26,7 +26,6 @@ app.use(middlewares.securityKey);
 app.use(middlewares.rateLimiter);
 
 app.post(config.api.endpoint, handler(sandbox));
-app.post(config.api.endpoint_pylint, handler(sandbox));
 
 log.info("Initializing Sandbox")
 
