@@ -26,7 +26,9 @@ Steps:
 Remember!!
 Change `config.js`'s `config.security.secret`to something different and change static/js/javascript.js in PythonBuddySandboxed to the same secret!!
 
-Navigate to `ExternalIP:3000 `to see PythonBuddy Dockerized!
+Navigate to `localhost:3000 `to see PythonBuddy Dockerized!
+
+(Or if you are hosting, navigate to `ExternalIP:3000 `to see PythonBuddy Dockerized!)
 
 
 More documentation coming...
