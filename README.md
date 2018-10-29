@@ -11,8 +11,8 @@ Inspiration comes from christophetd's [code-execution-api-demo][]
 ## Requirements 
   
    * Self-host or run on a Linux Server 
-   *  Node.js
-    * Docker Containers with:
+   * Node.js
+   * Docker containers with:
       * 4GB of Storage
       * 1GB of RAM
 
@@ -46,8 +46,6 @@ Changes need to be made to the `config.security.secret` in two file locations:
 ```
 
 Navigate to "http://localhost:3000" for self-hosted or "http://ServerExternalFacingIP:3000" to see PythonBuddy Dockerized!
-
-More documentation coming...
 
   [PythonBuddySandboxed]: https://github.com/ethanchewy/PythonBuddySandboxed
   [Docker Python Sandbox]: https://github.com/christophetd/docker-python-sandbox
