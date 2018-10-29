@@ -415,56 +415,59 @@ $(document).ready(function() {
         severity: null
       }];
       document.getElementById('errorslist').innerHTML = '';
-      $('#errorslist').append("<tr>" + "<th>Line</th>" + "<th>Severity</th>" +
-        "<th>Error</th>" + "<th>Tips</th>" +
-        "<th>Error Code</th>" +
-        "<th>Error Info</th>" + "</tr>");
-      var data_length = 0;
-      if (data != null) {
-        data_length = Object.keys(data).length;
-      }
-      for (var x = 0; x < data_length; x += 1) {
-        if (data[x] == null) {
-          continue
+      //Check if pylint output is empty.
+      if (data == null) {
+        result_cb(error_list);
+      } else {
+        $('#errorslist').append("<tr>" + "<th>Line</th>" + "<th>Severity</th>" +
+          "<th>Error</th>" + "<th>Tips</th>" +
+          "<th>Error Code</th>" +
+          "<th>Error Info</th>" + "</tr>");
+        var data_length = 0;
+        if (data != null) {
+          data_length = Object.keys(data).length;
         }
-        number = data[x].line
-        code = data[x].code
-        codeinfo = data[x].error_info
-        severity = code[0]
-        moreinfo = data[x].message
-        message = data[x].error
+        for (var x = 0; x < data_length; x += 1) {
+          if (data[x] == null) {
+            continue
+          }
+          number = data[x].line
+          code = data[x].code
+          codeinfo = data[x].error_info
+          severity = code[0]
+          moreinfo = data[x].message
+          message = data[x].error
 
-        //Set severity to necessary parameters
-        if (severity == "E" || severity == "e") {
-          severity = "error";
-          severity_color = "red";
-        } else if (severity == "W" || severity == "w") {
-          severity = "warning";
-          severity_color = "#DAA520";
+          //Set severity to necessary parameters
+          if (severity == "E" || severity == "e") {
+            severity = "error";
+            severity_color = "red";
+          } else if (severity == "W" || severity == "w") {
+            severity = "warning";
+            severity_color = "yellow";
+          }
+          //Push to error list
+          error_list.push({
+            line_no: number,
+            column_no_start: null,
+            column_no_stop: null,
+            fragment: null,
+            message: message,
+            severity: severity
+          });
+
+          //Get help message for each id
+          // var moreinfo = getHelp(id);
+          //Append all data to table
+          $('#errorslist').append("<tr>" + "<td>" + number + "</td>" +
+            "<td style=\"background-color:" + severity_color + ";\"" +
+            ">" + severity + "</td>" +
+            "<td>" + message + "</td>" +
+            "<td>" + moreinfo + "</td>" +
+            "<td>" + code + "</td>" +
+            "<td>" + codeinfo + "</td>" +
+            "</tr>");
         }
-        //Push to error list
-        error_list.push({
-          line_no: number,
-          column_no_start: null,
-          column_no_stop: null,
-          fragment: null,
-          message: message,
-          severity: severity
-        });
-
-        //Get help message for each id
-        // var moreinfo = getHelp(id);
-        //Append all data to table
-        $('#errorslist').append("<tr>" + "<td>" + number + "</td>" +
-          "<td style=\"background-color:" + severity_color + ";\"" +
-          ">" + severity + "</td>" +
-          "<td>" + message + "</td>" +
-          "<td>" + moreinfo + "</td>" +
-          "<td>" + code + "</td>" +
-          "<td>" + codeinfo + "</td>" +
-          "</tr>");
-      }
-      if (data != null) {
         result_cb(error_list);
       }
 
